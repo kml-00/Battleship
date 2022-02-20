@@ -162,6 +162,7 @@ const allowDrop = (event) => {
   event.preventDefault();
 };
 const dragStart = (event) => {
+  console.log("drag");
   event.dataTransfer.setData("text", event.target.id);
   setCurrentElement(event.target.id);
   removeAllListeners();
@@ -172,6 +173,7 @@ const drop = (event) => {
   event.preventDefault();
   let data = event.dataTransfer.getData("text");
   event.target.appendChild(document.getElementById(data));
+  console.log(data);
   setShipBoardState(currentShip.id, true);
   setShipPositionOnBoard(currentShip.id, event.target.id);
   setShipDropPoint(currentShip.id, event.target.id);
@@ -325,12 +327,22 @@ const elementPosition = () => {
   });
 };
 
+const startGame = () => {
+  let shipArr = ["ship1", "ship2", "ship3", "ship4"];
+  removeAllListeners();
+  shipArr.forEach((element) => {
+    let ship = document.getElementById(element);
+    ship.setAttribute("draggable", false);
+    ship.removeEventListener("dragstart", dragStart);
+  });
+};
 /* event listeners function */
 
 /* Init function  */
 const init = () => {
   let gameheader = document.getElementById("header");
   let gameside = document.getElementById("side");
+  let shipArr = ["ship1", "ship2", "ship3", "ship4"];
 
   let header = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
   for (let i = 0; i < 10; i++) {
@@ -357,10 +369,15 @@ const init = () => {
       gameboard.appendChild(div);
     }
   }
+
   let button = document.getElementById("rotate");
   button.addEventListener("click", rotate);
+  shipArr.forEach((element) => {
+    let ship = document.getElementById(element);
+
+    ship.addEventListener("dragstart", dragStart);
+  });
   showNextShip();
 };
-/* Init function  */
 
 init();

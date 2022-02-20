@@ -18,39 +18,21 @@
       <div id="side"></div>
       <div class="board" id="game"></div>
     </div>
+
     <div class="ships">
-      <div
-        id="ship4"
-        class="ship4 horizontal"
-        ondragstart="dragStart(event)"
-        draggable="true"
-      ></div>
-      <div
-        id="ship3"
-        class="ship3 horizontal"
-        ondragstart="dragStart(event)"
-        draggable="true"
-      ></div>
-      <div
-        id="ship2"
-        class="ship2 horizontal"
-        ondragstart="dragStart(event)"
-        draggable="true"
-      ></div>
-      <div
-        id="ship1"
-        class="ship1 horizontal"
-        ondragstart="dragStart(event)"
-        draggable="true"
-      ></div>
+      <div class="ship1 horizontal" id="ship1" draggable="true"></div>
+      <div class="ship2 horizontal" id="ship2" draggable="true"></div>
+      <div class="ship3 horizontal" id="ship3" draggable="true"></div>
+      <div class="ship4 horizontal" id="ship4" draggable="true"></div>
     </div>
+
     <div class="rotate-icon">
       <button id="rotate">
         <i class="fa-solid fa-rotate"></i>
       </button>
     </div>
     <div id="startGame" class="start-game">
-      <button id="start">START GAME</button>
+      <button id="start" onclick="startGame(event)">START GAME</button>
     </div>
 
     <script src="app.js"></script>
