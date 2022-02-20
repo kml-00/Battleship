@@ -7,7 +7,8 @@
 #header,
 #side,
 .ships,
-.rotate-icon {
+.rotate-icon,
+.start-game {
   display: flex;
   margin: 0 auto;
 }
@@ -117,13 +118,15 @@
   height: 68px;
 }
 
-.rotate-icon {
+.rotate-icon,
+.start-game {
   justify-content: center;
   align-items: center;
   font-size: 36px;
 }
 
-.rotate-icon button {
+.rotate-icon button,
+.start-game button {
   background-color: #44c767;
   border-radius: 28px;
   border: 1px solid #18ab29;
@@ -135,4 +138,8 @@
   padding: 16px 31px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
+}
+
+.start-game {
+  visibility: hidden;
 }
