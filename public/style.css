@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+.container,
+.board,
+#header,
+#side,
+.ships,
+.rotate-icon,
+.start-game {
+  display: flex;
+  margin: 0 auto;
+}
+
+#header {
+  width: 770px;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: lightgray;
+}
+#side {
+  width: 70px;
+  margin: 0 auto;
+  flex-direction: column;
+  background-color: lightgray;
+  text-align: center;
+}
+
+#header div #side div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 770px;
+}
+.board {
+  width: 700px;
+  flex-wrap: wrap;
+  border-collapse: collapse;
+}
+
+.item-header,
+.item-side,
+.item {
+  width: 70px;
+  height: 70px;
+  border: 1px solid black;
+}
+.item {
+  border: 1px solid black;
+}
+
+.item-header,
+.item-side {
+  font-size: 40px;
+}
+
+.ships {
+  width: 350px;
+  height: 350px;
+  border: 1px solid black;
+  border-radius: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.ship1,
+.ship2,
+.ship3,
+.ship4 {
+  position: absolute;
+  border: 1px solid red;
+  background-color: red;
+  z-index: 100;
+}
+.ship4.horizontal {
+  width: 279px;
+  height: 68px;
+  visibility: hidden;
+}
+
+.ship4.vertical {
+  width: 68px;
+  height: 279px;
+}
+
+.ship3.horizontal {
+  width: 208px;
+  height: 68px;
+  visibility: hidden;
+}
+
+.ship3.vertical {
+  width: 68px;
+  height: 208px;
+}
+.ship2.horizontal {
+  width: 138px;
+  height: 68px;
+  visibility: hidden;
+}
+
+.ship2.vertical {
+  height: 138px;
+  width: 68px;
+}
+
+.ship1.horizontal {
+  width: 68px;
+  height: 68px;
+  visibility: hidden;
+}
+
+.ship1.vertical {
+  width: 68px;
+  height: 68px;
+}
+
+.rotate-icon,
+.start-game {
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}
+
+.rotate-icon button,
+.start-game button {
+  background-color: #44c767;
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+
+.start-game {
+  display: none;
+}
