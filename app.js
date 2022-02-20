@@ -335,8 +335,49 @@ const startGame = () => {
     ship.setAttribute("draggable", false);
     ship.removeEventListener("dragstart", dragStart);
   });
+
+  addClickListener();
+};
+
+const addClickListener = () => {
+  for (let i = 0; i < game.length; i++) {
+    for (let j = 0; j < game.length; j++) {
+      let element = document.getElementById(game[i][j]);
+      element.style.backgroundColor = "#ABA2EF";
+      element.addEventListener("click", click);
+    }
+  }
+};
+
+const removeClickListener = () => {
+  for (let i = 0; i < game.length; i++) {
+    for (let j = 0; j < game.length; j++) {
+      let element = document.getElementById(game[i][j]);
+      element.style.backgroundColor = "#fff";
+      element.removeEventListener("click", click);
+    }
+  }
 };
 /* event listeners function */
+
+/* Game  */
+
+const click = (event) => {
+  console.log(event.target.id);
+
+  removeClickListener();
+  checkshot(event.target.id);
+};
+
+const checkshot = (id) => {
+  let ship = ["11", "12", "13", "14"];
+  if (ship.includes(id)) {
+    console.log("hit");
+  } else {
+    console.log("dupa");
+  }
+};
+/* Game  */
 
 /* Init function  */
 const init = () => {
