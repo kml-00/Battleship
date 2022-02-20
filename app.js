@@ -182,6 +182,25 @@ const drop = (event) => {
 
 /*---DRAG AND DROP---*/
 
+const setCurrentElement = (shipId) => {
+  currentShip = document.getElementById(shipId);
+};
+
+const showNextShip = () => {
+  let avaibleShips = [];
+  ships.forEach((ship) => {
+    if (ship.onGameboard == false) {
+      avaibleShips.push(ship.id);
+    }
+  });
+
+  if (avaibleShips.length > 0) {
+    let element = document.getElementById(avaibleShips[0]);
+    element.style.visibility = "visible";
+    setCurrentElement(element.id);
+  }
+};
+
 /* Init function  */
 const init = () => {
   let gameheader = document.getElementById("header");
