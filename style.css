@@ -141,5 +141,5 @@
 }
 
 .start-game {
-  visibility: hidden;
+  display: none;
 }

@@ -199,6 +199,13 @@ const showNextShip = () => {
     let element = document.getElementById(avaibleShips[0]);
     element.style.visibility = "visible";
     setCurrentElement(element.id);
+  } else {
+    let ships = document.querySelector(".ships");
+    let rotateIcon = document.querySelector(".rotate-icon");
+    let startgame = document.getElementById("startGame");
+    ships.style.display = "none";
+    rotateIcon.style.display = "none";
+    startgame.style.display = "flex";
   }
 };
 
