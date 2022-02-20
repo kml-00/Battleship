@@ -182,6 +182,7 @@ const drop = (event) => {
 
 /*---DRAG AND DROP---*/
 
+/* currentship function */
 const setCurrentElement = (shipId) => {
   currentShip = document.getElementById(shipId);
 };
@@ -200,6 +201,29 @@ const showNextShip = () => {
     setCurrentElement(element.id);
   }
 };
+
+/* currentship function */
+
+/* ship rotate function */
+const rotate = () => {
+  if (!getShipBoardState(currentShip.id)) {
+    if (currentShip.classList.contains("horizontal")) {
+      currentShip.classList.remove("horizontal");
+      currentShip.classList.add("vertical");
+      removeAllListeners();
+      setShipDirection(currentShip.id, "vertical");
+      addCustomListeners();
+    } else {
+      currentShip.classList.remove("vertical");
+      currentShip.classList.add("horizontal");
+      removeAllListeners();
+      setShipDirection(currentShip.id, "horizontal");
+      addCustomListeners();
+    }
+  }
+};
+
+/* ship rotate function */
 
 /* Init function  */
 const init = () => {
