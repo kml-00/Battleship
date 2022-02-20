@@ -45,6 +45,118 @@ ships = [
 
 /*SHIPS Array */
 
+/*---SHIP DATA FUNCTION---*/
+
+const setShipDirection = (shipId, direction) => {
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      ship.direction = direction;
+    }
+  });
+};
+
+const setShipDropPoint = (shipId, drop) => {
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      ship.dropPoint = drop;
+    }
+  });
+};
+
+const getShipPositionOnBoardAll = () => {
+  let arr = [];
+  ships.forEach((ship) => {
+    if (ship.positionOnBoard.length > 0) {
+      arr = arr.concat(ship.positionOnBoard);
+    }
+  });
+  return arr;
+};
+
+const setShipPositionOnBoard = (shipId, target) => {
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      switch (ship.direction) {
+        case "horizontal":
+          ship.positionOnBoard = [];
+          for (let i = 0; i < ship.size; i++) {
+            let tmp = (parseInt(target) + i).toString();
+
+            ship.positionOnBoard.push(tmp);
+          }
+          break;
+
+        case "vertical":
+          ship.positionOnBoard = [];
+          for (let i = 0; i < ship.size; i++) {
+            let tmp = (parseInt(target) + i * 10).toString();
+
+            ship.positionOnBoard.push(tmp);
+          }
+          break;
+      }
+    }
+  });
+};
+
+const getPositionOnBoard = () => {
+  let positionOnBoard = [];
+  ships.forEach((ship) => {
+    if (ship.positionOnBoard.length > 0) {
+    }
+  });
+};
+
+const setShipBoardState = (shipId, onGameboard) => {
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      ship.onGameboard = onGameboard;
+    }
+  });
+};
+
+const getShipDirection = (shipId) => {
+  let direction = null;
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      direction = ship.direction;
+    }
+  });
+  return direction;
+};
+
+const getShipBoardState = (shipId) => {
+  let onGameboard = null;
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      onGameboard = ship.onGameboard;
+    }
+  });
+  return onGameboard;
+};
+
+const getShipDropArea = (shipId) => {
+  let dropArea = null;
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      dropArea = ship.dropArea;
+    }
+  });
+  return dropArea;
+};
+
+const getShipSize = (shipId) => {
+  let size = null;
+  ships.forEach((ship) => {
+    if (ship.id == shipId) {
+      size = ship.size;
+    }
+  });
+  return size;
+};
+
+/*---SHIP DATA FUNCTION---*/
+
 /* Init function  */
 const init = () => {
   let gameheader = document.getElementById("header");
