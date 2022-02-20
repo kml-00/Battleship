@@ -3,6 +3,49 @@ let game = Array.from(Array(10), () => new Array(10));
 let currentShip = null;
 let positionOnBoard = [];
 
+/*SHIPS Array */
+ships = [
+  {
+    id: "ship1",
+    direction: "horizontal",
+    size: 1,
+    dropArea: 0,
+    dropPoint: null,
+    positionOnBoard: [],
+    onGameboard: false,
+  },
+  {
+    id: "ship2",
+    direction: "horizontal",
+    size: 2,
+    dropArea: 1,
+    dropPoint: null,
+    positionOnBoard: [],
+    onGameboard: false,
+  },
+  {
+    id: "ship3",
+    direction: "horizontal",
+    size: 3,
+    dropArea: 2,
+    dropPoint: null,
+    positionOnBoard: [],
+    onGameboard: false,
+  },
+  {
+    id: "ship4",
+    direction: "horizontal",
+    size: 4,
+    dropArea: 3,
+    dropPoint: null,
+    positionOnBoard: [],
+    onGameboard: false,
+  },
+];
+
+/*SHIPS Array */
+
+/* Init function  */
 const init = () => {
   let gameheader = document.getElementById("header");
   let gameside = document.getElementById("side");
@@ -36,5 +79,6 @@ const init = () => {
   button.addEventListener("click", rotate);
   showNextShip();
 };
+/* Init function  */
 
 init();
