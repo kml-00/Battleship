@@ -157,6 +157,31 @@ const getShipSize = (shipId) => {
 
 /*---SHIP DATA FUNCTION---*/
 
+/*---DRAG AND DROP---*/
+const allowDrop = (event) => {
+  event.preventDefault();
+};
+const dragStart = (event) => {
+  event.dataTransfer.setData("text", event.target.id);
+  setCurrentElement(event.target.id);
+  removeAllListeners();
+  addCustomListeners();
+  elementPosition();
+};
+const drop = (event) => {
+  event.preventDefault();
+  let data = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(data));
+  setShipBoardState(currentShip.id, true);
+  setShipPositionOnBoard(currentShip.id, event.target.id);
+  setShipDropPoint(currentShip.id, event.target.id);
+  removeAllListeners();
+  addCustomListeners();
+  showNextShip();
+};
+
+/*---DRAG AND DROP---*/
+
 /* Init function  */
 const init = () => {
   let gameheader = document.getElementById("header");
